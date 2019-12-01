@@ -1,0 +1,51 @@
+1. What is Polymorphism? Try to explain in Mandarin.
+
+Ans:多型（Polymorphism）是物件導向程式設計的重要概念，指的是能為不同資料型別提供同樣介面的能力，也就是說能使用同一個介面操作不同的物件實例。實務上通常會用抽象類別或抽象介面來實作多型的概念，提升修改、維護或調整程式時的彈性。
+
+2. Here are the 7 important lifecycle methods of an Activity:
+i. onCreate()：Activity初次啟動時會呼叫onCreate，然後進入Created狀態。
+
+ii. onStart()：Activity建立以後，會呼叫onStart，然後進入Started狀態，此時已經有畫面，但還不能和Activity互動
+
+iii. onResume()：當Activity進入Started狀態，然後有focus時會呼叫onResume，此時可以和Activity互動
+
+iv. onPause()：當Activity失去focus時會呼叫此方法，而此時使用者不能與之互動。最常見的狀況是使用app時跳出其他通知。
+
+v. onStop()：當Activity變成背景，而我們看不到時，會呼叫此方法，例如按下回到主畫面的按鈕。
+
+vi. onDestroy()：當我們按下返回鍵離開app時會呼叫此方法，或是記憶體不足時，OS可能也會呼叫此方法。
+
+vii. onRestart()：當Activity變為背景，但尚未消滅時，此時再打開App就會呼叫此方法。
+    Try to explain when are they called during the lifecycle of Activity.
+
+
+3. What is the Android Jetpack?
+Ans: Android Jetpack是一組元件、工具和指南，他將現有的Support Library 和Architecture Components組合在一起並分為四類：Architecture、UI、Foundation和Behavior。
+
+
+4. Key concepts in Android Development: Try to research them and explain briefly.
+i. Activity：Activity 是提供Android應用程式使用者介面畫面的應用程式元件，使用者可以與此畫面互動並執行動作。
+
+ii. Service：是用於在背景長時間執行操作（例如播放音樂）的應用程式元件，它沒有任何UI。可以透過呼叫 startService() 來啟動，也可以透過呼叫 bindService() 來連結。
+
+iii. Content Provider：是Android應用程式的一部份，管理對中央資料儲存庫的存取，通常提供自己的UI來處理資料。
+
+iv. Broadcast Receiver：是一個Android元件，讓我們能發送或接收Android系統或應用程式事件，並通知需要的應用程式執行一些指定的工作。
+
+v. Notification：指的是Android顯示在應用程式UI之外的訊息，其目的為提醒使用者、提供來自其他人的通訊或是來自其他應用程式的即時訊息。
+
+vi. Runtime Permission：指的是執行應用程式時的權限，又分為一般權限和危險權限。目前的應用程式大多設計成如果要存取危險權限時，需要向使用者發出要求。
+
+vii. ANR：是Application Not Responding的簡寫，當Android app的UI thread被阻塞太久，就會觸發此錯誤，讓使用者選擇要繼續等待或強制結束app。通常有兩種情況會觸發：app對於輸入的事件沒有在5秒內反應或是一段時間後，BroadcastReceiver類別仍未完成執行。
+
+viii. OOM：是Out of Memory的簡寫，通常只要process超過記憶體的容量時就會出現此錯誤。
+
+ix. Exception：是在程式執行期間發生的事件，該事件破壞了程式指令的正常流程。當錯誤發生在方法內時，該方法將建立一個物件並將其交給執行系統。該物件稱為 exception物件，包含有關錯誤的訊息，錯誤的類型和發生錯誤時程式的狀態。
+
+x. Material Design：是視覺，動作和互動設計的全面性指南，針對不同平台和設備的使用者體驗發發提供標準和最佳實踐。
+
+
+5. What is Coroutines? Why we use it? Try to explain in Mandarin.
+
+Ans: 是cooperation + routine合成的字，routine 指得是程式中被呼叫的 function、method，而Coroutine指的是我們將 function 、method 協同其他更多的 function、method 共同作業。
+Coroutine 最典型的特色是允許 method 被暫停( suspended)，等其他程序執行之後再回復(resumed)執行，而暫停執行的 method 狀態會被保留，復原後再以暫停時的狀態繼續執行。例如在 main thread 執行到 function A 需要等 IO thread 耗時處理的結果，那可以先暫停 function A， 讓出 main thread  去執行其他的事情，等到 IO thread 的耗時處理結束得到結果後再回復 function A 繼續執行，以得到我要的結果。如此一來可以避免太多東西要執行而卡住main thread，造成程式當掉。
